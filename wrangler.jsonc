@@ -1,0 +1,19 @@
+{
+  "name": "akaiserandroweb",
+  "main": "_worker.js",
+  "compatibility_date": "2025-09-01",
+
+  // Website files sit in the repo root; only /api/* wakes the Worker.
+  "assets": { "directory": "./", "binding": "ASSETS", "run_worker_first": ["/api/*"] },
+
+  // Database: created and connected automatically on the first deploy (no id needed).
+  "d1_databases": [ { "binding": "DB", "database_name": "akaiser" } ],
+
+  "triggers": { "crons": ["17 3 * * *"] },
+
+  "vars": {
+    "MAX_DEVICES": "5",
+    "GACHA_UTC_OFFSET_MIN": "420",
+    "PBKDF2_ITERATIONS": "30000"
+  }
+}
